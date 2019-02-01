@@ -1,0 +1,19 @@
+Most web servers write access attempts to a log. For example, in Tomcat, there would be TOMCAT_HOME/logs/localhost_access_log.<<date>>.txt
+A sample file is attached.
+
+Assume you are being hacked, and you are woken up in the middle of the night to figure what is going on.
+
+Write a program, in any programming language/platform of your choice, (pick whatever - Java/Python/perl/bash/Excel/Access/AWS Lambda/Your-Own/machine-language/...), to "list the aggregate counts of various request types".
+
+
+Note the guids in the URLs in the sample log, they do not count towards making it a distinct request type.
+
+For example, these two lines are the SAME request types:
+127.0.0.1 - - [04/Aug/2016:10:05:24 -0400] "POST /myapi/endpoint1/c3e5bdc2-e084-4c37-8672-546f1c1b0450/operation1 HTTP/1.1" 200 35
+127.0.0.1 - - [04/Aug/2016:10:05:24 -0400] "POST /myapi/endpoint1/c3e5bdc2-e084-4c37-8672-546f1c1b0450/operation1 HTTP/1.1" 403 121
+So count of (POST /myapi/endpoint1/{guid}/operation1) must show as 2
+
+That is all we can provide as requirements. For everything else, use your best judgement.
+To repeat, the requirement from a non-technical product owner is "list the aggregate counts of various request types"
+
+For bonus credit, display the counts occurring within a specified time window.
